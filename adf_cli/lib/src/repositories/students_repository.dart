@@ -25,7 +25,7 @@ class StudentsRepository {
         await http.get(Uri.parse('http://localhost:8080/students/$id'));
 
     if (studentResult.statusCode != 200 || studentResult.body == '{}') {
-      throw Exception();
+      throw Exception('Usuário inesxistente ou erro na API.');
     }
 
     return StudentsModel.fromJson(studentResult.body);
